@@ -1,0 +1,65 @@
+References                                                        anything in underperformed scenes. In Proceedings of the
+                                                        IEEE/CVF International Conference on Computer Vision,
+ [1] Woo-Jin Ahn, Geun-Yeong Yang, Hyun-Duck Choi, and Myo-                                                                    pages 3367–3375, 2023. 3
+     Taeg Lim. Style blind domain generalized semantic segmen-                                                                     [13] Bowen Cheng, Ishan Misra, Alexander G Schwing, Alexander
+      tation via covariance alignment and semantic consistence                                                                                  Kirillov, and Rohit Girdhar. Masked-attention mask Trans-
+      contrastive learning. In Proceedings of the IEEE/CVF Con-                                                                    former for universal image segmentation. In Proceedings of
+     ference on Computer Vision and Pattern Recognition, pages                                                                           the IEEE/CVF Conference on Computer Vision and Pattern
+     3616–3626, 2024. 7                                                                         Recognition, pages 1290–1299, 2022. 1, 6
+ [2] Asha Anoosheh, Torsten Sattler, Radu Timofte, Marc Polle-                                                                     [14] S. Choi, S. Jung, H. Yun, J. Kim, S. Kim, and J. Choo. Ro-
+      feys, and Luc Van Gool. Night-to-day image translation for                                                                        bustNet: Improving domain generalization in urban-scene
+      retrieval-based localization. In International Conference on                                                                     segmentation via instance selective whitening. In Proceed-
+     Robotics and Automation, pages 5958–5964. IEEE, 2019. 2                                                                         ings of the IEEE/CVF Conference on Computer Vision and
+ [3] Qi Bi, Shaodi You, and Theo Gevers. Interactive learning                                                                          Pattern Recognition, pages 11580–11590, 2021. 7, 8, 4
+     of intrinsic and extrinsic properties for all-day semantic seg-                                                                     [15] Marius Cordts, Mohamed Omran, Sebastian Ramos, Timo
+     mentation.  IEEE Transactions on Image Processing, 32:                                                                          Rehfeld, Markus Enzweiler, Rodrigo Benenson, Uwe Franke,
+     3821–3835, 2023. 6                                                                        Stefan Roth, and Bernt Schiele. The cityscapes dataset for
+ [4] Qi Bi, Jingjun Yi, Hao Zheng, Haolan Zhan, Yawen Huang,          semantic urban scene understanding. In Proceedings of the
+    Wei Ji, Yuexiang Li, and Yefeng Zheng. Learning frequency-        IEEE Conference on Computer Vision and Pattern Recogni-
+     adapted vision foundation model for domain generalized se-             tion, pages 3213–3223, 2016. 3, 5, 8
+     mantic segmentation.  In Advances in Neural Information                                                                     [16] Dengxin Dai and Luc Van Gool. Dark model adaptation:
+     Processing Systems, pages 94047–94072, 2024. 3, 6, 7                                                                   Semantic image segmentation from daytime to nighttime. In
+ [5] Qi Bi, Shaodi You, and Theo Gevers. Learning generalized           21st International Conference on Intelligent Transportation
+     segmentation for foggy-scenes by bi-directional wavelet guid-           Systems, pages 3819–3824, 2018. 1, 2, 6
+     ance. In Proceedings of the AAAI Conference on Artificial      [17] Xueqing Deng, Peng Wang, Xiaochen Lian, and Shawn
+      Intelligence, pages 801–809, 2024. 2, 3                        Newsam.  NightLab: A dual-level architecture with hard-
+ [6] Qi Bi, Shaodi You, and Theo Gevers.  Learning content-          ness detection for segmentation at night. In Proceedings of
+     enhanced mask Transformer for domain generalized urban-           the IEEE/CVF Conference on Computer Vision and Pattern
+     scene segmentation. In Proceedings of the AAAI Conference           Recognition, pages 16938–16948, 2022. 1, 2, 6, 7
+    on Artificial Intelligence, pages 819–827, 2024. 2, 7, 8, 4         [18] Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke
+ [7] David Brüggemann, Christos Sakaridis, Prune Truong, and           Zettlemoyer. QLoRA: Efficient finetuning of quantized LLMs.
+    Luc Van Gool. Refign: Align and refine for adaptation of          Advances in Neural Information Processing Systems, 36, 2024.
+     semantic segmentation to adverse conditions. In Proceed-         3
+     ings of the IEEE/CVF Winter Conference on Applications of      [19] Jian Ding, Nan Xue, Gui-Song Xia, Bernt Schiele, and
+    Computer Vision, pages 3174–3184, 2023. 2                       Dengxin Dai. HGFormer: Hierarchical grouping Transformer
+ [8]  Prithvijit Chattopadhyay, Kartik Sarangmath, Vivek Vijayku-            for domain generalized semantic segmentation. In Proceed-
+     mar, and Judy Hoffman. PASTA: Proportional amplitude           ings of the IEEE/CVF Conference on Computer Vision and
+     spectrum training augmentation for syn-to-real domain gen-           Pattern Recognition, pages 15413–15423, 2023. 2, 7, 8, 4
+      eralization. In Proceedings of the IEEE/CVF International      [20] Huan Gao, Jichang Guo, Guoli Wang, and Qian Zhang. Cross-
+     Conference on Computer Vision, pages 19288–19300, 2023.         domain correlation distillation for unsupervised domain adap-
+    6                                                                            tation in nighttime semantic segmentation. In Proceedings of
+ [9] Liang-Chieh Chen, George Papandreou, Iasonas Kokkinos,           the IEEE/CVF Conference on Computer Vision and Pattern
+     Kevin Murphy, and Alan L. Yuille. DeepLab: Semantic image           Recognition, pages 9913–9923, 2022. 2, 6
+     segmentation with deep convolutional nets, atrous convolu-      [21] Ziqi Gao, Qichao Wang, Aochuan Chen, Zijing Liu, Bingzhe
+      tion, and fully connected crfs. IEEE Transactions on Pattern        Wu, Liang Chen, and Jia Li. Parameter-efficient fine-tuning
+     Analysis and Machine Intelligence, 40(4):834–848, 2017. 1           with discrete Fourier transform. In International Conference
+[10] Liang-Chieh Chen, Yukun Zhu, George Papandreou, Florian         on Machine Learning, 2024. 3, 6, 7
+     Schroff, and Hartwig Adam. Encoder-decoder with atrous      [22] Milena Gazdieva, Alexander Korotin, Daniil Selikhanovych,
+     separable convolution for semantic image segmentation. In          and Evgeny Burnaev. Extremal domain translation with neural
+     Proceedings of the European Conference on Computer Vision,           optimal transport. Advances in Neural Information Processing
+     pages 801–818, 2018. 1, 6                                           Systems, 36, 2023. 3
+[11] Shoufa Chen, Chongjian Ge, Zhan Tong, Jiangliu Wang, Yib-      [23] Ziyang Gong, Fuhao Li, Yupeng Deng, Wenjun Shen, Xi-
+     ing Song, Jue Wang, and Ping Luo. AdaptFormer: Adapting          anzheng Ma, Zhenming Ji, and Nan Xia. Train one, general-
+      vision Transformers for scalable visual recognition. Advances            ize to all: Generalizable semantic segmentation from single-
+      in Neural Information Processing Systems, 35:16664–16678,          scene to all adverse scenes. In Proceedings of the 31st ACM
+     2022. 6                                                               International Conference on Multimedia, pages 2275–2284,
+[12] Tianrun Chen, Lanyun Zhu, Chaotao Deng, Runlong Cao,          2023. 2, 6
+    Yan Wang, Shangzhan Zhang, Zejian Li, Lingyun Sun, Ying      [24] Ziyang Gong, Fuhao Li, Yupeng Deng, Deblina Bhattacharjee,
+     Zang, and Papa Mao.  SAM-Adapter: Adapting segment          Xiangwei Zhu, and Zhenming Ji. CoDA: Instructive chain-of-
+
+
+
+
+                                                           23846
+
+ Authorized licensed use limited to: ZheJiang Sci-Tech University. Downloaded on September 18,2026 at 09:18:46 UTC from IEEE Xplore. Restrictions apply.

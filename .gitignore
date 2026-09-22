@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.idea/
+.mplconfig/
+.skill-install-tmp/
+checkpoint/
+*.log

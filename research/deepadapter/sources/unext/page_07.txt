@@ -1,0 +1,60 @@
+4  Related Work
+
+4.1  Fusing Foundation Models
+
+Integrating different foundation models has become a common strategy in recent years. Many Vision-Language
+Models (VLMs) [2, 66] are composed of a vision encoder paired with a Large Language Model (LLM),
+enabling flexible combinations tailored to diverse applications. For the SAM series, there have been several
+efforts [20, 27, 48] to enhance language understanding by incorporating CLIP [41]. Other works have focused
+on improving few-shot segmentation capabilities by integrating pretrained vision encoders like DINOv2 [35],
+exemplified by Matcher [30]. The study most related to ours is [58], which also introduces an auxiliary DINOv2
+encoder to form a U-shaped architecture. However, their focus lies in the design of more sophisticated decoder
+design, such as content-guided attention [5] and wavelet convolution [12].
+
+4.2  Image Segmentation
+
+Image segmentation, viewed as a pixel-level classification task, can be broadly categorized into binary
+segmentation [62], semantic segmentation [15], instance segmentation [14], and panoptic segmentation [28].
+This work focuses on binary segmentation, where all foreground pixels are assigned to a single class, and the
+remaining pixels are treated as background. Binary segmentation underpins many important application
+domains, including dichotomous image segmentation [37, 63], camouflaged object detection [16, 53], marine
+animal segmentation [13, 26], and remote sensing saliency detection [40, 60]. Most existing methods tend to
+design task-specific decoders for each segmentation scenario. In contrast, our proposed method introduces a
+unified framework capable of achieving state-of-the-art performance across multiple binary segmentation tasks
+with a single model architecture.
+
+5  Conclusion
+
+In this paper, we presented SAM2-UNeXT, a simple yet effective framework that integrates two powerful
+foundation models: SAM2 and DINOv2, through a decoupled resolution strategy. This design leverages the
+complementary feature biases of each model, resulting in enhanced segmentation performance. Extensive
+experiments on four benchmark datasets demonstrate the effectiveness and generalizability of our approach.
+Moreover, SAM2-UNeXT offers high customizability, making it well-suited for adaptation to a wide range of
+downstream tasks. By adjusting the dynamic resolution configuration or incorporating alternative auxiliary
+encoders, the framework holds promise for extending SAM2-based models to previously underexplored
+segmentation scenarios.
+
+References
+
+  [1] Muhammad Awais, Muzammal Naseer, Salman Khan, Rao Muhammad Anwer, Hisham Cholakkal, Mubarak
+    Shah, Ming-Hsuan Yang, and Fahad Shahbaz Khan. Foundation models defining a new era in vision: a survey
+    and outlook. IEEE Transactions on Pattern Analysis and Machine Intelligence, 2025.
+
+  [2] Shuai Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Sibo Song, Kai Dang, Peng Wang, Shijie Wang,
+    Jun Tang, et al. Qwen2. 5-vl technical report. arXiv preprint arXiv:2502.13923, 2025.
+
+  [3] Jieneng Chen, Jieru Mei, Xianhang Li, Yongyi Lu, Qihang Yu, Qingyue Wei, Xiangde Luo, Yutong Xie, Ehsan
+     Adeli, Yan Wang, et al. Transunet: Rethinking the u-net architecture design for medical image segmentation
+    through the lens of transformers. Medical Image Analysis, page 103280, 2024.
+
+  [4] Tianrun Chen, Lanyun Zhu, Chaotao Deng, Runlong Cao, Yan Wang, Shangzhan Zhang, Zejian Li, Lingyun Sun,
+    Ying Zang, and Papa Mao. Sam-adapter: Adapting segment anything in underperformed scenes. In ICCVW,
+    pages 3367–3375, 2023.
+
+  [5] Zixuan Chen, Zewei He, and Zhe-Ming Lu. Dea-net: Single image dehazing based on detail-enhanced convolution
+    and content-guided attention. IEEE Transactions on Image Processing, 33:1002–1015, 2024.
+
+
+
+
+                                               7

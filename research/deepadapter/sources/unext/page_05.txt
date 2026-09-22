@@ -1,0 +1,43 @@
+Table 4 ∣Results on remote sensing saliency detection.
+
+                              ORSI-4199 [47]             EORSSD [61]
+          Methods             mean  max                    mean  max
+                       Sα  F β   F β    Eϕ MAE  Sα  F β   F β    Eϕ MAE
+         EMFINet [64] 0.859  0.810  0.817 0.902 0.045  0.932  0.851  0.874 0.960 0.008
+         ACCoNet [25] 0.868  0.861  0.865 0.934 0.031  0.929  0.855  0.884 0.965 0.007
+         ERPNet [65]  0.865  0.839  0.854 0.917 0.037  0.925  0.827  0.874 0.937 0.008
+          AESINet [60]  0.870  0.863  0.868 0.936 0.031  0.935  0.850  0.879 0.965 0.006
+          SFANet [40]   0.876  0.866  0.871 0.939 0.029  0.935  0.868  0.883 0.973 0.006
+          SAM2-UNeXT 0.887 0.873 0.886 0.942 0.026 0.948 0.892 0.905 0.978 0.004
+
+
+     Image         HRNet           IS-Net        UDUN          BiRefNet     SAM2-UNeXT    Ground Truth
+
+
+
+
+
+Figure 2 ∣Visualization results on dichotomous image segmentation.
+
+weighted IoU loss (LωIoU). Two data augmentation strategies, including random horizontal and vertical flipping,
+are employed during training. Unless otherwise specified, we adopt the large version of SAM2 and DINOv2.
+The input resolutions are set to (Hh, Wh) = (1024, 1024) for the SAM2 branch and (Hl, Wl) = (448, 448) for
+the DINOv2 branch. All models are trained with a batch size of 1 for 20 epochs across all tasks.
+
+3.3  Comparison with State-of-the-Art Methods
+
+In this subsection, we first analyze the quantitative results across multiple benchmarks, followed by qualitative
+visual comparisons for dichotomous image segmentation.
+Dichotomous Image Segmentation. The results are presented in Table 1, SAM2-UNeXT achieves steady
+performance gains over the second-best method, BiRefNet. Specifically, on the DIS-VD subset, our method
+improves the S-measure by 1.2%.
+Camouflaged Object Detection. The results are presented in Table 2. Compared with SAM2-UNet, the new
+SAM2-UNeXT achieves consistent improvements across all metrics. For example, on the CHAMELEON
+dataset, SAM2-UNeXT improves the S-measure by 2.8%.
+Marine Animal Segmentation. The results are presented in Table 3. SAM2-UNeXT significantly outperforms
+existing methods by a large margin. For instance, on the MAS3K dataset, our method improves the mIoU by
+5.4%.
+Remote Sensing Saliency Detection. The results are presented in Table 4. SAM2-UNeXT outperforms all
+
+
+                                               5

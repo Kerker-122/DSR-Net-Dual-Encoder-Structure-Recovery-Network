@@ -1,0 +1,61 @@
+operation can be expressed as                                  the high-frequency bands VHi   is measured by a similarity
+                                                                                                      i ∈RN×M, computed as          ˜VLi = VLi + (˜f Li + VLi ) × W 2i + b2i .        (6)    map SH
+                                                                H T
+                                                                                                                                          i × T i4.3. Illumination-Sensitive Band Adaptation                SHi = Softmax(VH √        ).           (7)
+                                                         C
+The illumination-sensitive frequency bands are supposed       The token feature T Hi  is projected into the VFM feature
+to be adapted in a way that is different to the illumination-     space by the pre-computed similarity map SHi and a linear
+insensitive frequency bands. We first design the illumination-      layer. This process can be expressed as
+sensitive band randomization component to mitigate the do-            H        H      3                                                                                                          ˜f i = SHi × [T i × W i + b3i ],           (8)main gap by modifying these frequency bands. Afterwards,               3                                                     where W i and b3i denote the weight and bias, respectively.the illumination-sensitive band adaptation aims to fine-tune
+                                                          Then, the VFM feature is adapted under the guidancethese randomized frequency bands, so that the final represen-
+                                                              of these high-frequency bands after randomization, so as totation obtains more generalization.
+                                                    assume more illumination robustness during optimization.
+Band Randomization.  It is found by the band-rejection
+                                                              Similar to the illumination-insensitive band adaptation, it is
+spectral analysis that most of the frequency bands are illumi-
+                                                                  realized by fusion with a straight-forward linear layer. This
+nation sensitive. The VFM feature from the high-frequency                                               4                                                             process can be computed with weight W i and bias b4i as
+bands V[0,128)i     and V[128,256)i        significantly impairs the gen-                   H              4                                                                   ˜VHi = VHi + (˜f i + VHi ) × W i + b4i .       (9)eralization ability to unseen night-time scenes.  Besides,
+the VFM feature from the six middle frequency bands also       The middle-frequency bands, i.e., VM1i   and VM2i    , can be
+negatively impacts the night-time generalization. Directly     enhanced in the same adaptation scheme, producing corre-
+discarding these frequency bands may be a straight-forward     sponding ˜VM1i   and ˜VM2i    . Finally, the low-frequency com-
+solution, but can also lead to the loss of structure edge in a     ponent eVLi  , two middle-frequency components eVM1i    , eVM2i
+night-time scene, which is fragile for pixel-wise prediction.     and high-frequency component eVHi  are projected back by
+  We propose an illumination-sensitive band randomiza-     the inverse discrete sine transform (IDST), so as to compute
+tion component to resolve this problem. The general idea     the VFM feature f i+1 for the next frozen layer Li+1. This
+is to randomize these illumination-sensitive bands within     process can be mathematically expressed as
+a modest range, so that the frequency information need           f i+1 = IDST([eVLi , eVM1i    , eVM2i    , eVHi  ]).      (10)for pixel-wise scene prediction is preserved, while at the
+                                                            Discussion. We give deep insight of the NightAdapter with
+same time the domain gap between day-time and various
+                                                          frequency transformation. Benefiting from the energy com-
+night-time scenes is mitigated. Specifically, for the repre-
+sentation of every frequency channel Vji ∈R1×1024, where     paction property of DST, the input VFM feature can be con-                                                                verted into a limited number of spectral bands, which can be
+j = 0, 1, · · · , 767, its per-channel response Vj,ki  ∈R1×1 is                                                               categorized into two groups: (a) insensitive bands that unaf-
+randomized by Vj,ki  ∼U[0, T], where k = 0, 1, · · · , 1023,     fected by the photometric transformation. (b) sensitive bands
+and T is a response threshold. Empirically, it is set to be 0.3.                                                                    that influenced by the domain variability. In the frequency
+  To align with the process of illumination-insensitive fre-                                                       domain, altering a single value can have a global impact in
+quency information, every two frequency bands are con-                                                               the spatial domain. Consequently, we have designed two
+catenated together for the following processing.  Specifi-                                                    band adaptation strategies in a parameter-efficient manner,
+cally, among the illumination-sensitive bands, we have one                                                      which simultaneously emphasize insensitive bands while ran-
+high-frequency band VHi  and two middle-frequency bands    domly removing sensitive bands. Through these two steps,
+VM1i    , VM2i    , given by VHi = [V[0,128)i        , V[128,256)i           ], VM1i  =     executed in a divide-and-conquer fashion, we achieve the
+[V[256,384)i           , V[384,512)i           ], VM2i  = [V[512,640)i           , V[640,768)i           ]. For      objective of learning more generalized scene representations
+simplicity, in the following text, VHi  , VM1i   and VM2i    all refer     on a global scale. Finally, by projecting the enhanced bands
+to the frequency bands after per-channel randomization.       back to the spatial domain, we can effectively enhance the
+                                                                generalization ability for night-time scene parsing.Band Adaptation. For enhancing robustness against varia-
+tions in illumination, a band adaptation is employed, lever-
+aging scene representation derived from the randomized     5. Experiments
+high- and mid-frequency bands. Specifically, in layer Li, let
+ H          M1             M2                       5.1. Datasets & Implementation DetailsT i ∈RM×C, T i  ∈RM×C and T i  ∈RM×C denote
+the illumination-sensitive token for the high-frequency band     Cityscapes [15] (C) is a driving scene segmentation dataset
+VHi  , middle-frequency bands VM1i   and VM2i    , respectively.       captured in well-illuminated day-time conditions.  It con-
+   In terms of specifics, we consider the adaptation of the       sists of 2,975 training and 500 validation images. NightCity
+high-frequency band as a case in point. First, the correlation     [65] (NC) consists of 2,998 training and 1,299 validation
+between each element in T Hi and each patch embedding in     images. NightCity-fine [70] (NC-f) rectified the ground
+
+
+
+
+                                                           23842
+
+ Authorized licensed use limited to: ZheJiang Sci-Tech University. Downloaded on September 18,2026 at 09:18:46 UTC from IEEE Xplore. Restrictions apply.

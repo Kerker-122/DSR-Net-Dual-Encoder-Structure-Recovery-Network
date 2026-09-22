@@ -1,0 +1,55 @@
+Table 5 ∣Results on different auxiliary encoders.
+                                                   Table 6 ∣Results on different resolutions.
+                  MAS3K [26]
+ Methods                   w
+            mIoU  Sα   F β   Eϕ MAE         Resolution       MAS3K [26]
+ w/o aux         0.832  0.918  0.882  0.949 0.017      H   L  mIoU  Sα   F βw   Eϕ MAE
+ ResNet-101 [17] 0.840  0.917  0.885  0.955 0.017         352  352  0.820  0.913  0.871  0.952 0.016
+ PVTv2-b5 [51]   0.833  0.917  0.878  0.952 0.018        1024  224  0.842  0.920  0.888  0.957 0.015
+ DINOv2-S [35]  0.836  0.917  0.881  0.950 0.017        1024  672  0.853 0.924  0.897 0.960 0.014
+ DINOv2-B [35]  0.843  0.921  0.890  0.955 0.015        1024 448  0.853 0.926 0.900 0.960 0.014
+ DINOv2-L       0.853 0.926 0.900 0.960 0.014
+
+
+competing methods on both datasets. Notably, on the ORSI-4199 dataset, our method achieves a 1.1%
+improvement in S-measure.
+Qualitative Comparison. Figure 2 illustrates visual comparisons on the dichotomous image segmentation task.
+Our method demonstrates superior segmentation accuracy across diverse scenarios: fine-grained tree branches
+(row 1), complex multi-object compositions (row 2), light variations (row 3), and scenes with grid structures
+and shadow interference (row 4). SAM2-UNeXT effectively handles curved edges, thin structures, and subtle
+visual boundaries, delivering better segmentation results even under challenging conditions.
+
+3.4  Discussion
+
+In this section, we analyze the design choices of SAM2-UNeXT using MAS3K as a representative benchmark.
+
+3.4.1  Impact of Auxiliary Encoder
+
+We investigate the effect of different auxiliary encoder designs, as shown in Table 5:
+Row 1. The auxiliary encoder is removed. In this setting, the model roughly becomes a high-resolution variant
+of SAM2-UNet [56]. Although it performs better than the low-resolution version of SAM2-UNet, its accuracy
+remains lower than that of configurations with an auxiliary encoder.
+Row 2 & 3. We use ResNet-101 [17] and PVTv2-b5 [51] as auxiliary encoders with parameters trainable. The
+results show marginal improvements compared to the setting without an auxiliary encoder, suggesting limited
+benefits from these conventional backbones under a simple fusion strategy.
+Row 4 & 5. We replace the auxiliary encoder with frozen small and base versions of DINOv2 [35]. The results
+indicate that larger variants generally yield better performance.
+
+3.4.2  Impact of Dynamic Resolution
+
+We also explore the effect of different resolution combinations, as shown in Table 6:
+Row 1. Both SAM2 and DINOv2 encoders operate at a uniform low resolution of 352×352. This setting results
+in the lowest performance among all tested configurations, though it still surpasses the original SAM2-UNet
+baseline.
+Row 2. The high resolution is fixed at 1024×1024 for the SAM2 branch, while the low resolution for the
+DINOv2 branch is reduced to 224×224. A slight performance drop is observed compared to the 448×448
+setting, but it still outperforms the uniform 352×352 case.
+Row 3. The high resolution remains at 1024×1024, while the low resolution is increased to 672×672. The
+performance difference is negligible compared to the 448×448 setting, but inference cost increases significantly,
+making this configuration less practical.
+
+
+
+
+
+                                               6

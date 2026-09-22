@@ -1,0 +1,65 @@
+[73] Binhui Xie, Shuang Li, Mingjia Li, Chi Harold Liu, Gao
+    Huang, and Guoren Wang. SePiCo: Semantic-guided pixel
+      contrast for domain adaptive semantic segmentation. IEEE
+     Transactions on Pattern Analysis and Machine Intelligence,
+     45(7):9004–9021, 2023. 2, 6
+[74] Mixue Xie, Shuang Li, Rui Zhang, and Chi Harold Liu.
+     Dirichlet-based uncertainty calibration for active domain
+     adaptation. In International Conference on Learning Repre-
+      sentations, 2023. 3
+[75] Zhifeng Xie, Sen Wang, Ke Xu, Zhizhong Zhang, Xin Tan,
+    Yuan Xie, and Lizhuang Ma.  Boosting night-time scene
+     parsing with learnable frequency.  IEEE Transactions on
+    Image Processing, 32:2386–2398, 2023. 1, 2, 6, 7
+[76] Mengde Xu, Zheng Zhang, Fangyun Wei, Han Hu, and Xiang
+     Bai.  Side adapter network for open-vocabulary semantic
+     segmentation. In Proceedings of the IEEE/CVF Conference
+    on Computer Vision and Pattern Recognition, pages 2945–
+     2954, 2023. 3
+[77] Qinwei Xu, Ruipeng Zhang, Ya Zhang, Yanfeng Wang, and
+    Qi Tian. A Fourier-based framework for domain generaliza-
+      tion. In Proceedings of the IEEE/CVF Conference on Com-
+     puter Vision and Pattern Recognition, pages 14383–14392,
+     2021. 2, 3
+[78] Yuedong Yang, Hung-Yueh Chiang, Guihong Li, Diana Mar-
+      culescu, and Radu Marculescu. Efficient low-rank backpropa-
+     gation for vision Transformer adaptation. Advances in Neural
+     Information Processing Systems, 36, 2024. 3, 6, 7
+[79] Jingjun Yi, Qi Bi, Hao Zheng, Haolan Zhan, Wei Ji, Yawen
+    Huang, Yuexiang Li, and Yefeng Zheng. Learning spectral-
+     decomposited tokens for domain generalized semantic seg-
+     mentation. In ACM Multimedia, pages 8159–8168, 2024. 2,
+      6, 7
+[80] Fisher Yu, Haofeng Chen, Xin Wang, Wenqi Xian, Yingying
+     Chen, Fangchen Liu, Vashisht Madhavan, and Trevor Darrell.
+    BDD100K: A diverse driving dataset for heterogeneous multi-
+      task learning. In Proceedings of the IEEE/CVF Conference on
+    Computer Vision and Pattern Recognition, pages 2636–2645,
+     2020. 6
+[81] Zhongqi Yue, Qianru Sun, and Hanwang Zhang. Make the U
+      in UDA matter: Invariant consistency learning for unsuper-
+     vised domain adaptation. Advances in Neural Information
+     Processing Systems, 36, 2023. 3
+[82] Chen Zhao, Shuming Liu, Karttikeya Mangalam, Guocheng
+     Qian, Fatimah Zohra, Abdulmohsen Alghannam, Jitendra
+     Malik, and Bernard Ghanem. Dr2Net: Dynamic reversible
+      dual-residual networks for memory-efficient finetuning. Pro-
+     ceedings of the IEEE/CVF Conference on Computer Vision
+    and Pattern Recognition, pages 15835–15844, 2024. 3
+[83] Yuyang Zhao, Zhun Zhong, Na Zhao, Nicu Sebe, and
+    Gim Hee Lee. Style-hallucinated dual consistency learning
+      for domain generalized semantic segmentation. In Proceed-
+     ings of the European Conference on Computer Vision, pages
+     535–552, 2022. 7
+[84] Zhun Zhong, Yuyang Zhao, Gim Hee Lee, and Nicu Sebe.
+     Adversarial style augmentation for domain generalized urban-
+     scene segmentation. Advances in Neural Information Pro-
+     cessing Systems, 35:338–350, 2022. 2, 6
+
+
+
+
+
+                                                           23849
+
+ Authorized licensed use limited to: ZheJiang Sci-Tech University. Downloaded on September 18,2026 at 09:18:46 UTC from IEEE Xplore. Restrictions apply.

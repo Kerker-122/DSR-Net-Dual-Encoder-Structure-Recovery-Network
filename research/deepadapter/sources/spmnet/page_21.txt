@@ -1,0 +1,73 @@
+[16] Y. Guan, X. Liu, and Z. Yu, "Fast underwater image enhancement based on a generative adversarial
+
+framework," Frontiers in Marine Science, vol. 9, p. 964600, 2023.
+
+[17] W. Peng, C. Zhou, and R. Hu, "RAU-Net: A residual and attention-driven underwater image
+
+enhancement method," in Int. Forum Digit. TV Wireless Multimedia Commun. (FUDT), Singapore, 2023:
+
+Springer, pp. 15-27.
+
+[18] L. Li, E. Rigall, and J. Dong, "MAS3K: An open dataset for marine animal segmentation," in Int.
+
+Symp. Benchmark. Meas. Optim., Cham, 2020: Springer, pp. 194-212.
+
+[19] Z. Fu, R. Chen, and Y. Huang, "MasNet: A robust deep marine animal segmentation network," IEEE
+
+Journal of Oceanic Engineering, vol. 49, no. 3, pp. 1104-1115, 2023.
+
+[20] A. Dosovitskiy, L. Beyer, and A. Kolesnikov, "An image is worth 16x16 words: Transformers for
+
+image recognition at scale," in International Conference on Learning Representations (ICLR), 2021.
+
+[21] Y. Liu, Z. Shao, and N. Hoffmann, "Global attention mechanism: Retain information to enhance
+
+channel-spatial interactions," arXiv preprint arXiv:2112.05561, 2021.
+
+[22] X. Zhao, J. Xie, S. Chen, and J. Liu, "Convex Combination Star Shape Prior for Data-driven Image
+
+Semantic Segmentation," in Proceedings of the Computer Vision and Pattern Recognition Conference, 2025,
+
+pp. 14068-14077.
+
+[23] M. J. Islam, P. Luo, and J. Sattar, "Simultaneous enhancement and super-resolution of underwater
+
+imagery for improved visual perception," in Robotics: Science and Systems (RSS), 2020.
+
+[24] P. Drews-Jr, I. d. Souza, I. P. Maurell, E. V. Protas, and S. S. C. Botelho, "Underwater image
+
+segmentation in the wild using deep learning," Journal of the Brazilian Computer Society, vol. 27, no. 1, p.
+
+12, 2021.
+
+[25] X. Qin, Z. Zhang, and C. Huang, "U2-Net: Going deeper with nested U-structure for salient object
+
+detection," Pattern Recognition, vol. 106, p. 107404, 2020.
+
+[26] H. Mei, G. P. Ji, and Z. Wei, "Camouflaged object segmentation with distraction mining," in Proc.
+
+IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR), 2021, pp. 8772-8781.
+
+[27] Y. Lv, J. Zhang, and Y. Dai, "Simultaneously localize, segment and rank the camouflaged objects," in
+
+Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR), 2021, pp. 11591-11601.
+
+[28] Y. Sun, G. Chen, and N. Liu, "Context-aware cross-level fusion network for camouflaged object
+
+detection," in Proceedings of the International Joint Conference on Artificial Intelligence (IJCAI), 2021, pp.
+
+1025-1031.
+
+[29]  J. Liu, J. Zhang, and N. Barnes, "Modeling aleatoric uncertainty for camouflaged object detection," in
+
+Proc. IEEE/CVF Winter Conf. Appl. Comput. Vis. (WACV), 2022, pp. 1445-1454.
+
+[30] Y. Pang, X. Zhao, and T. Z. Xiang, "Zoom in and out: A mixed-scale triplet network for camouflaged
+
+object detection," in Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR), 2022, pp. 2160-2170.
+
+[31] S. Zheng, J. Lu, and H. Zhao, "Rethinking semantic segmentation from a sequence-to-sequence
+
+perspective with transformers," in Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR), 2021, pp.
+
+6881-6890.

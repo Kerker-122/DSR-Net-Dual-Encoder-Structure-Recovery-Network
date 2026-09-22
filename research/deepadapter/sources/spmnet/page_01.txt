@@ -1,0 +1,46 @@
+    SPMNet: Shape-Prior Guided Progressive Decoding
+
+     for Camouflaged Marine Animal Segmentation
+
+
+Abstract: Complex underwater backgrounds and biological camouflage often weaken target
+semantics, while low contrast and non-rigid morphologies lead to ambiguous boundaries and
+incomplete structures. To address these issues, we propose SPMNet, a shape-prior guided network
+for marine animal segmentation. Built upon SAM2, SPMNet introduces a Progressive SAG-CCS
+Decoder (PSD) for progressive semantic and structural reconstruction. Within PSD, a Spatial
+Attention Gate (SAG) suppresses camouflage-induced background responses during cross-level
+feature fusion, providing more reliable decoding features. An Iterative CCS Refinement (ICCS)
+mechanism based on the Convex Combination Star Shape (CCS) prior then imposes explicit
+geometric constraints to improve boundary continuity and structural completeness. We further
+design a Hybrid Shape-Aware Loss (HSAL), which combines pixel-level region supervision with
+gradient-direction consistency. A frozen SAM2 Hiera backbone with lightweight adaptation and
+contextual enhancement modules is used for underwater feature representation. Experiments on
+MAS3K, RMAS, UFO120, and RUWI demonstrate competitive performance. Notably, on MAS3K,
+outperforming state-of-the-art models by 1.6% in 𝑚𝐼𝑜𝑈, 1.3% in 𝐹𝛽𝜔,and 0.6% in 𝑚𝐸𝜑, with a
+0.1% reduction in MAE.
+
+Keywords: Marine Animal Segmentation, Camouflaged Object Segmentation, Shape  Prior,
+Progressive Decoding
+
+1．Introduction
+
+Marine Animal Segmentation (MAS)  is an important vision task for underwater ecological
+monitoring, biodiversity investigation, and marine resource management. Unlike conventional
+object segmentation in natural scenes, MAS is affected by underwater imaging factors such as light
+absorption, scattering, water turbidity, and non-uniform illumination [1–3]. Biological camouflage
+introduces an additional challenge. Many marine animals resemble surrounding coral, rocks, and
+sand through similar colors, textures, or morphological patterns. As a result, target features are easily
+disturbed by background textures, reducing their discriminability in the feature space. We refer to
+this phenomenon as semantic weakening. Meanwhile, low-contrast underwater imaging and
+complex non-rigid morphologies make object contours difficult to distinguish. This problem is
+particularly severe for tentacles, fins, and other slender appendages, where segmentation results
+often contain unclear contours, local discontinuities, or missing structures. We refer to this problem
+as boundary ambiguity. Therefore, maintaining  discriminative  target semantics  in complex
+backgrounds while recovering continuous and complete boundaries remains a key challenge for
+camouflaged marine animal segmentation.
+
+In recent years, several methods have been developed for marine animal segmentation in complex
+underwater environments. Li et al. proposed the Enhanced Cascade Decoder Network (ECDNet)
+[12], which progressively refines marine animal segmentation through a cascaded decoding
+mechanism. Chen et al. later developed WaterSNet [13], using Random Style Adaptation (RSA) and
+feature fusion to alleviate interference caused by complex underwater degradation. With the

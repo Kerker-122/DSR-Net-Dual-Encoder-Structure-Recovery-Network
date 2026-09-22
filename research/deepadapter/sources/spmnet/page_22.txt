@@ -1,0 +1,39 @@
+[32]  J. Chen, Y. Lu, and Q. Yu, "TransUNet: Rethinking the U-Net architecture design for medical image
+
+segmentation through the lens of transformers," Medical Image Analysis, vol. 97, p. 103280, 2024.
+
+[33] A. He, K. Wang, and T. Li, "H2Former: An efficient hierarchical hybrid transformer for medical image
+
+segmentation," IEEE Transactions on Medical Imaging, vol. 42, no. 9, pp. 2763-2775, 2023.
+
+[34] A. Kirillov, E. Mintun, and N. Ravi, "Segment Anything," in Proc. IEEE/CVF Int. Conf. Comput. Vis.
+
+(ICCV), 2023, pp. 4015-4026.
+
+[35] X. Wei, J. Cao, and Y. Jin, "I-MedSAM: Implicit medical image segmentation with segment anything,"
+
+in Eur. Conf. Comput. Vis. (ECCV), Cham, 2024: Springer, pp. 90-107.
+
+[36]  J. Wu, Z. Wang, and M. Hong, "Medical SAM Adapter: Adapting Segment Anything Model for
+
+Medical Image Segmentation," Medical Image Analysis, vol. 102, p. 103547, 2025.
+
+[37] T. Chen, L. Zhu, and C. Ding, "SAM-Adapter: Adapting SAM in underperformed scenes: Camouflage,
+
+shadow, medical image segmentation, and more," in Proceedings of the IEEE/CVF International Conference
+
+on Computer Vision Workshops (ICCVW), 2023, pp. 1570-1579.
+
+[38] Y. Lai, Z. Luo, and Z. Yu, "Detect any deepfakes: Segment anything meets face forgery detection and
+
+localization," in Chinese conference on biometric recognition, 2023: Springer, pp. 180-190.
+
+[39] P. Zhang, T. Yan, Y. Liu, and H. Lu, "Fantastic animals and where to find them: Segment any marine
+
+animal with dual sam," in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
+
+Recognition, 2024, pp. 2578-2587.
+
+[40] X. Xiong, "SAM2-UNeXT: An Improved High-Resolution Baseline for Adapting Foundation Models
+
+to Downstream Segmentation Tasks," arXiv:2508.03566, 2025.

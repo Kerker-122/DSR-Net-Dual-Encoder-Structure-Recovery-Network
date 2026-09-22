@@ -1,0 +1,73 @@
+  Method                  Backbone   AN  DZ  ND        Method                           #Para.   AN  DZ  ND
+ DA Models:                                                                Full                        304.2M    65.8   59.4   45.2
+ GCMA [60] [ICCV’2019]       Res-101          -   42.0   45.6       GTR-LTR [56] [TIP’2021]        304.2M    66.7   60.3   46.4
+ MCGDA [61] [PAMI’2019]     Res-101          -   42.5   49.4         AdvStyle [84] [NeurIPS’2022]     304.2M    67.0   60.6   46.7
+ DANNet [72] [CVPR’2021]     Res-101          -   44.3   47.7       PASTA [8] [ICCV’2023]          304.2M    67.1   61.3   46.9
+  CCDistill [20] [CVPR’2022]    Res-101     37.3   47.5        -          Freeze                       0.0M    67.6   60.8   47.1
+ UDA Models:                                        LoRA [31] [ICLR’2022]           0.8M    68.7   62.0   48.3
+  AdaptSeg [68] [CVPR’2018]    Res-101          -   30.4   34.5         AdaptFormer [11] [NeurIPS’2022]    3.2M    68.5   61.8   47.8
+ TENT [69] [ICLR’2021]        Res-101     25.2   21.6   39.3       VPT [37] [ECCV’2022]            3.7M    68.0   61.6   47.7
+  DAFormer [28] [CVPR’2022]   MiT-B5     44.7   48.5   51.8       EVP [48] [CVPR’2023]            3.7M    67.4   58.3   45.6
+                                          WHT [78] [NeurIPS’2023]          3.5M    68.5   61.7   46.4 MALL-D [58] [ECCV’2022]    Res-101     26.9   22.8   42.7
+                                                                     FourierFT [21] [ICML’2024]        0.7M    69.8   63.0   49.5  SePiCo [73] [PAMI’2023]       Res-101     50.5   54.2   56.9
+                                                     SET [79] [MM’2024]             6.1M    70.5   65.8   50.7 HRDA [29] [ECCV’2022]      MiT-B5     53.1   55.9        -
+                                                FADA [4] [NeurIPS’2024]         11.7M    57.4   61.8   56.4 STA [23] [MM’2023]         MiT-B5     49.7        -        -
+                                                      REIN [71] [CVPR’2024]           3.0M    70.6   64.3   50.3 MIC [30] [CVPR’2023]        MiT-B5     57.2   60.2   58.6
+                                                                NightAdapter (Ours)           11.5M    84.0   74.1   60.3
+  PASS [43] [AAAI’2024]       MiT-B5     60.3   60.2   57.0
+                                                                                                               ↑13.4   ↑8.3   ↑3.9
+ CoDA [24] [ECCV’2024]      MiT-B5     66.4   61.2   59.2
+  DGInStyle [38] [ECCV’2024]   MiT-B5     59.2   32.6        -       Table 2. Comparison with parameter-efficient fine-tuning (PEFT)
+  REIN [71] [CVPR’2024]        ViT-L      70.6   64.3   50.3       methods in day-to-night generalization.
+  NightAdapter (Ours)         ViT-L      84.0   74.1   60.3
+                                                           Method                         #Para.  NC   NC-f  BN
+                                         ↑13.4   ↑9.8   ↑1.1
+                                                                 ResNet-101 Encoder:
+Table 1. Comparison with existing domain adaptation methods      DeepLabV3 [10] [ECCV’2018]    60.1M   54.7   58.8   43.4
+in day-to-night generalization. ’-’: No official report. Top three        NightCity [65] [TIP’2021]       84.6M   51.8   55.9   39.7
+results are highlighted as best , second and  third , respectively.       NightLab [17] [CVPR’2022]      98.5M   55.9   62.3   50.4
+                                                DTP [70] [ICCV’2023]          63.9M   57.6   60.4      -
+                                                                NightFormer [55] [ECCV’2024]   58.4M   59.8   62.8   47.5truth of 2,554 images in NC. BDD100K-Night [80] (BN) is
+                                                                 Swin-Base Encoder:
+a subset of BDD100K, which consists of 314 training and
+                                                              UPer-Swin [49] [ICCV’2021]    119.9M   58.4   61.1   31.7
+31 validation night-time images. Its validation set is used as                                                                NightLab [17] [CVPR’2022]     242.4M   59.8   62.3   45.1
+a unseen target domain. Adverse Conditions Dataset with      FDLNet [75] [TIP’2023]                     -   55.5      -     45.9
+Correspondences-Night [62] (AN) is a subset of ACDC,     DTP [70] [ICCV’2023]         122.5M   61.2   64.2   53.1
+which consists of 1,006 night-time images.  Its validation       NightFormer [55] [ECCV’2024]  111.9M   63.5   65.9   55.4
+set is used as the unseen target domain. Dark Zurich [60]     VFM Encoder:
+(DZ) has 50 night-time images with finely-annotated ground      REIN [71] [CVPR’2024]          3.0M   62.4   64.6   53.9
+                                                              NightAdapter (Ours)         11.5M   65.1   66.2   57.8
+truth for validation. Nighttime Driving [16] (ND) has 50
+                                                                                                              ↑1.6   ↑0.3   ↑2.4
+night-time images with finely-annotated ground truth. All-
+                                                                 Table 3. Comparison with existing night-time semantic segmenta-day CityScapes [3] (AC) is the first driving-scene semantic
+                                                                           tion methods for in-domain evaluation. #Para.: trainable parameter
+segmentation dataset under all-day conditions. It is a syn-
+                                                              number. ‘-’: Neither no official report nor source code.
+thetic dataset rendered on top of CityScapes. All the datasets
+share 19 common semantic categories.
+   For all the experiments, the training of NightAdapter   MALL-D [58], SePiCo [73], HRDA [29], STA [23], MIC
+directly follows the default settings and hyper-parameters      [30], PASS [43], CoDA [24] and DGInStyle [38]. The com-
+of the REIN baseline [71]. The optimizer is AdamW [51],     pared PEFT based VFM methods include LoRA [31], Adapt-
+and the training stops after 40,000 iterations. The learning     Former [11], VPT [37], EVP [48], WHT [78], FourierFT
+rate for the image encoder, the adapter and the decoder      [21], SET [79] and FADA [4]. Three traditional style hallu-
+is initially set to be 1 × 10−4, 1 × 10−5 and 1 × 10−5,     cination methods (GTR-LTR [56], AdvStyle [84], PASTA
+respectively. NightAdapter uses DINOv2 [53] as the      [8]) and the REIN baseline [71] are also tested for reference.
+image encoder, but is also flexible to accommodate other     CityScapes is used as the source domain. AN, DZ and ND,
+VFM image encoders. To predict the per-pixel semantic      are used as unseen target domains.
+category, the decoder part of the Mask2Former [13] is used.    Comparison with DA & UDA Methods. Table 1 reports
+The image is resized to 512 × 512 pixels for input. The     the performance. Compared with Transformer based DA
+evaluation metric is mean Intersection over Union (mIoU).     and UDA methods, NightAdapter outperforms them by
+                                                       around 25% and 15% in mIoU on AN and DZ. Compared
+5.2. Day-to-Night Generalization Results                                                           with the REIN baseline [71], the performance improvement
+Experimental Settings. The compared DA and UDA meth-    on AN, DZ and ND are 13.4%, 9.8% and 10.0% in mIoU.
+ods include GCMA [60], MCGDA [61], DANNet [72],    Comparison with PEFT Methods. All the compared meth-
+CCDistill [20], AdaptSeg [68], TENT [69], DAFormer [28],     ods are re-implemented with the official source code and
+
+
+
+
+                                                           23843
+
+ Authorized licensed use limited to: ZheJiang Sci-Tech University. Downloaded on September 18,2026 at 09:18:46 UTC from IEEE Xplore. Restrictions apply.

@@ -1,0 +1,57 @@
+2.3  Dual-Resolution Design
+
+A straightforward approach to combining the two large encoders is to process inputs at the same resolution;
+however, this is computationally inefficient. In particular, for DINOv2, which relies on standard self-attention
+mechanisms [7], increasing the input resolution leads to a substantial rise in computational cost. Considering
+that SAM focuses on fine-grained local details, whereas DINOv2 emphasizes global semantic understanding,
+we adopt a dual-resolution strategy: the SAM encoder operates on a higher-resolution input (Hh, Wh), while
+the DINOv2 encoder processes a lower-resolution input (Hl, Wl).
+
+2.4  Dense Glue Layer
+
+Unlike the hierarchical design of Hiera, the vanilla Vision Transformer [7] architecture adopted by DINOv2
+produces non-hierarchical, scale-consistent embeddings at every layer. A common approach [3, 58] to leverage
+such transformer features is to enhance the final feature map of a hierarchical encoder. Instead, we employ
+a dense fusion strategy inspired by the observation that DINOv2 exhibits strong zero-shot capabilities: its
+encoded representations become highly interpretable after principal component analysis, effectively highlighting
+the foreground of interest without any fine-tuning. In other words, these features can be regarded as spatial
+attention maps enriched with global semantic information.
+
+Based on this, we first apply four 1×1 convolutions to align the channel dimension of the DINOv2 features
+(1024 channels for DINOv2-L) with those of the four stages of the SAM2 encoder features (144, 288, 576, and
+1152 channels for Hiera-L). Next, the DINOv2 features are resized to match the spatial dimensions of each
+corresponding SAM2 feature map and fused via simple channel-wise concatenation. Finally, the concatenated
+features are compressed to 128 channels through 1×1 convolutions to improve training efficiency.
+
+2.5  U-Net-Style Decoder
+
+In this stage, we mostly follow the design of SAM2-UNet by replacing the original transformer-based
+decoder in SAM2 with a U-Net-style decoder [43], where each decoder block consists of two consecutive
+“Conv–BN–ReLU” layers. The major difference is that we introduce an additional partial decoder that without
+feature concatenation, resulting in a total of four decoder stages. This modification increases the resolution of
+the final segmentation feature map to one-half (rather than one-quarter) of the high-resolution input, which is
+advantageous for tasks that are sensitive to boundary segmentation accuracy.
+
+3  Experiment
+
+3.1  Datasets and Benchmarks
+
+We conduct experiments on four public benchmarks spanning a range of segmentation tasks:
+Dichotomous Image Segmentation. We use the DIS5K [39] dataset for evaluation. The training set (DIS-TR)
+contains 3,000 images, while the evaluation is conducted on five subsets: DIS-VD (470), DIS-TE1 (500),
+DIS5K-TE2 (500), DIS-TE3 (500), and DIS-TE4 (500). Performance is measured using four metrics: S-measure
+(Sα) [9], weighted F-measure (F βw ) [32], mean E-measure (Eϕ) [11], and mean absolute error (MAE).
+Camouflaged Object Detection. We evaluate on four datasets: CHAMELEON [45], CAMO [24], COD10K [10],
+and NC4K [31]. The unified training set consists of 4,040 images (3,040 from COD10K and 1,000 from
+CAMO). The remaining CHAMELEON (76), CAMO (250), COD10K (2,026), and NC4K (4,121) images are
+used for testing. We report results using S-measure (Sα), adaptive F-measure (Fβ), mean E-measure (Eϕ),
+and mean absolute error (MAE).
+Marine Animal Segmentation. Two datasets are used for this task: MAS3K [26], with 1,769 training images
+and 1,141 test images; and RMAS [13], with 2,514 training images and 500 test images. Evaluation is based
+on five metrics: mIoU, S-measure (Sα), weighted F-measure (F βw ), mean E-measure (Eϕ), and mean absolute
+error (MAE).
+Remote Sensing Saliency Detection. We use two datasets: EORSSD [61], with 1,400 training images and 600
+test images; and ORSI-4199 [47], with 2,000 training images and 2,199 test images. Five metrics are used for
+
+
+                                               3

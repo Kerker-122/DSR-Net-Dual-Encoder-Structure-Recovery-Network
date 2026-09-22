@@ -1,0 +1,24 @@
+                      Fig. 4 Qualitative comparison of different segmentation methods.
+
+4.5 Ablation Experiments
+
+
+Ablation studies are conducted on the MAS3K dataset under consistent training settings and
+evaluation metrics. In the following experiments, the Baseline denotes a model equipped with the
+SAM2 encoder, feature adaptation modules (MonaAdapter, CFEM, and RFB), and a conventional
+decoder. It is optimized using the Conventional IoU-BCE Loss, without the proposed PSD and
+HSAL.
+
+4.5.1 Effectiveness of PSD Components
+
+We perform ablation analysis on the key components of PSD to evaluate the contributions of SAG
+and ICCS in the progressive decoding process. Different components are gradually introduced to
+analyze their effects on segmentation performance.
+
+                   Table 4. Evaluates the individual contributions of SAG and ICCS.
+
+
+    Model       SAG         ICCS       𝒎𝑰𝒐𝑼↑        𝑺𝜶↑         𝑭𝜷𝝎↑       𝒎𝑬∅↑      𝑴𝑨𝑬↓
+
+
+    Baseline       ×        ×            0.806          0.902          0.853          0.944          0.021

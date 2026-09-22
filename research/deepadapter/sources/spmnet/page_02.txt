@@ -1,0 +1,45 @@
+development of vision foundation models, the Segment Anything Model (SAM) and Segment
+Anything Model 2 (SAM2) [6] have also been introduced into downstream segmentation tasks due
+to their strong general representation capabilities. In 2024, Yan et al. proposed MAS-SAM [14],
+which employs adapters, a Hypermap Extraction Module (HEM), and a Progressive Prediction
+Decoder (PPD) to adapt SAM to marine scenes. The Segment Anything Model 2 UNet (SAM2-
+UNet) [5] proposed by Xiong et al. further exploits the representation capability of the SAM2
+encoder and achieves promising performance across various segmentation tasks. However, feature
+enhancement or conventional cross-level fusion alone remains insufficient to address the two
+challenges above in highly camouflaged underwater scenes. On the one hand, shallow features
+contain rich spatial details but also preserve substantial background textures that resemble the target.
+Directly fusing these features may further interfere with already weakened target semantics. On the
+other hand, existing data-driven decoding processes mainly recover object contours from visual
+features and lack explicit constraints on object shape. Consequently, discontinuous or incomplete
+predictions still occur around low-contrast boundaries and slender structures such as tentacles.
+
+To address these problems, we propose SPMNet, a shape-prior guided network for camouflaged
+marine animal segmentation. Built upon SAM2, SPMNet introduces a Progressive SAG-CCS
+Decoder (PSD) as its core decoding architecture. Inspired by the Convex Combination Star Shape
+(CCS) prior proposed by Zhao et al. [22], we integrate an Iterative CCS Refinement (ICCS)
+mechanism into PSD, enabling progressive decoding under explicit shape constraints. Its smooth
+shape field provides explicit shape constraints for predicted contours, improving the recovery of
+ambiguous boundaries and slender structures such as tentacles. However, in complex camouflage
+scenarios, high foreground-background  similarity weakens  target semantics and  introduces
+substantial background interference into shallow features. Such unreliable features can further limit
+the effectiveness of ICCS during shape-guided decoding. To address this issue, we further introduce
+a Spatial Attention Gate (SAG) into PSD. SAG selectively enhances target-related spatial responses
+and suppresses background interference during cross-level fusion, providing more reliable features
+for subsequent shape-prior guided decoding. During training, a Hybrid Shape-Aware Loss combines
+region-level classification supervision with shape-direction consistency to jointly optimize region
+prediction and boundary structure. In addition, the frozen SAM2 Hiera backbone is equipped with
+MonaAdapter [7], a Context-aware Feature Enhancement Module (CFEM), and a Receptive Field
+Block (RFB) [8] for lightweight adaptation and contextual enhancement. Through these designs,
+SPMNet takes the CCS shape prior as the core of progressive decoding and employs SAG to
+improve its effectiveness under complex camouflage, thereby better addressing semantic weakening
+and boundary ambiguity in marine animal segmentation.
+
+We name the improved model the Shape-Prior Guided Progressive Decoding for Camouflaged
+Marine Animal Segmentation (SPMNet). The main contributions of this paper are summarized as
+follows:
+
+1. We propose a Progressive SAG-CCS Decoder (PSD) that integrates an Iterative CCS Refinement
+(ICCS) mechanism into progressive decoding. Explicit shape constraints are introduced to improve
+the recovery of ambiguous boundaries and slender structures. In addition, a Spatial Attention Gate
+(SAG)  is incorporated to suppress feature interference caused by camouflaged backgrounds,
+providing reliable representations for shape-prior guided decoding.

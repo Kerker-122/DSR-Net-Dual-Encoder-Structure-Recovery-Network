@@ -1,0 +1,46 @@
+grained segmentation of underwater marine animals [14].
+
+With the development of vision foundation models, SAM-based methods have also been explored
+for marine animal segmentation. Segment Anything Model 2 UNet (SAM2-UNet) [5] proposed by
+Xiong et al. combines the powerful representation capability of SAM2 with a U-shaped decoder. It
+achieves competitive performance on MAS3K and RMAS datasets, demonstrating the effectiveness
+of SAM2-based architectures for marine animal segmentation. Simultaneously, some studies have
+proposed various underwater image enhancement algorithms [15-17] aimed at improving image
+quality to provide more favorable inputs for subsequent segmentation tasks.
+
+Although existing methods have achieved promising performance, highly camouflaged marine
+animal segmentation remains challenging. The similarity between targets and backgrounds weakens
+semantic representations, while complex biological structures lead to ambiguous boundaries.
+Therefore, further exploration of effective feature refinement and structural guidance strategies is
+still required.
+
+2.2 Shape Prior Guided Segmentation
+
+Recently, shape priors have been introduced into image segmentation tasks to utilize geometric
+information and improve structural consistency. Different from purely data-driven methods, shape
+priors provide additional structural constraints, allowing models to consider not only region
+prediction but also object shape characteristics. Therefore, shape-prior guided methods have great
+potential in boundary recovery and complex structure segmentation.
+
+Traditional shape prior methods usually rely on manually designed geometric models or predefined
+shape constraints, which may have limited flexibility when handling objects with large shape
+variations. To better integrate shape constraints into modern deep segmentation networks, Zhao et
+al. proposed the Convex Combination Star Shape (CCS) prior for data-driven image semantic
+segmentation at CVPR 2025 [22]. The proposed method describes object geometry through a
+differentiable shape field and introduces star-shape constraints into the segmentation process.
+Compared with traditional shape priors, CCS provides a more flexible data-driven strategy for
+preserving object structures while maintaining segmentation accuracy.
+
+However, directly applying CCS to camouflaged marine animal segmentation remains challenging.
+The effectiveness of shape refinement depends on the  reliability of input features. Due to
+camouflage characteristics, target semantics can be weakened and background interference can be
+introduced, which limits the effectiveness of shape priors. Therefore, improving feature reliability
+during decoding is essential to fully exploit the advantages of CCS in complex marine scenes.
+
+3. Proposed Method
+
+3.1 Overview of SPMNet
+
+Fig. 1 presents the overall architecture of SPMNet, including the frozen SAM2 Hiera backbone,
+feature adaptation and enhancement modules, PSD, and HSAL. Different from conventional
+segmentation frameworks that mainly recover object regions based on visual features, SPMNet

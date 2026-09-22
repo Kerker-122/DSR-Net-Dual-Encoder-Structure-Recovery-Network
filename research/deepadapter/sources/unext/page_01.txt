@@ -1,0 +1,51 @@
+     SAM2-UNeXT: An Improved High-Resolution
+     Baseline for Adapting Foundation Models to
+     Downstream Segmentation Tasks
+
+           Xinyu Xiong1∗  Zihuang Wu2∗  Lei Zhang1  Lei Lu3  Ming Li4  Guanbin Li1∗∗
+
+
+            1Sun Yat-sen University, 2Jiangxi Normal University, 3Hainan University, 4Shandong Inspur Database Technology
+               Co., Ltd, *Equal Contribution, **Corresponding Author
+
+          Abstract2025
+               Recent studies have highlighted the potential of adapting the Segment Anything Model (SAM) for
+                  various downstream tasks. However, constructing a more powerful and generalizable encoder to further
+                enhance performance remains an open challenge. In this work, we propose SAM2-UNeXT, an advancedAug
+               framework that builds upon the core principles of SAM2-UNet while extending the representational
+5                 capacity of SAM2 through the integration of an auxiliary DINOv2 encoder. By incorporating a
+                  dual-resolution strategy and a dense glue layer, our approach enables more accurate segmentation with
+                a simple architecture, relaxing the need for complex decoder designs. Extensive experiments conducted
+               on four benchmarks, including dichotomous image segmentation, camouflaged object detection, marine
+                animal segmentation, and remote sensing saliency detection, demonstrate the superior performance of
+                our proposed method. The code is available at https://github.com/WZH0120/SAM2-UNeXT.[cs.CV]
+
+          1  Introduction
+
+            Foundation models are playing an increasingly pivotal role in computer vision [1], natural language process-
+             ing [34], intelligent medicine [21], autonomous driving [50], and other domains [23, 54, 59]. In the field of
+            image segmentation, the Segment Anything Model (SAM) [22, 42] family has sparked significant interest.
+              Traditional small segmentation networks typically devote substantial design effort to complex decoder modules.
+            However, a fundamental limitation persists: once the knowledge is lost in the encoding stage, it cannot be
+               fully recovered during decoding. In contrast, foundation models leverage their large parameter capacity and
+              sophisticated pretraining strategies to learn high-quality representations, enabling accurate segmentation
+            performance even with relatively simple decoder architectures.
+
+            Although foundation models demonstrate strong generalization capabilities, task-specific adaptation, such asarXiv:2508.03566v1        parameter-efficient fine-tuning (PEFT) [55], remains important for many downstream applications [62, 63]. Re-
+              cent methods have achieved promising results by incorporating lightweight adapters [4, 18], LoRA modules [19],
+             or similar components into the encoder, often in conjunction with decoder refinement strategies [53, 57].
+             Nevertheless, relying solely on SAM still results in limited generalization in some scenarios. For example,
+               linear probing [8] of the SAM encoder on the ImageNet [6] classification yields significantly lower accuracy
+           compared to other large models such as CLIP [41] and DINOv2 [35]. A plausible explanation is that SAM’s
+              class-agnostic segmentation pretraining induces a representational bias that favoring fine-grained local details
+             while capturing limited global semantic context.
+
+             Building upon the above analysis, we propose SAM2-UNeXT, a unified and extensible framework that
+               synergistically integrates multiple foundation models, including SAM2 [42] and DINOv2 [35], to harness their
+           complementary strengths in detail perception and semantic representation. The proposed SAM2-UNeXT
+                offers the following key benefits:
+
+
+
+
+                                                           1

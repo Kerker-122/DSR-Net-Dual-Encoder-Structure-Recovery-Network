@@ -1,0 +1,54 @@
+                          2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)
+
+
+
+
+
+                     NightAdapter: Learning a Frequency Adapter for
+                        Generalizable Night-time Scene Segmentation
+
+
+                 Qi Bi1,3, Jingjun Yi2, Huimin Huang2   , Hao Zheng2, Haolan Zhan4, Yawen Huang2,
+                                  Yuexiang Li5   , Xian Wu2, Yefeng Zheng1
+                  1Westlake University, China      2Jarvis Research Center, Tencent Youtu Lab, China
+                       3University of Amsterdam, Netherland    4Monash University, Australia10.1109/CVPR52734.2025.02220                                    5Macau University, Macau
+DOI:                huiminhuang@tencent.com, yuexiang.li@ieee.org, zhengyefeng@westlake.edu.cn
+
+|
+IEEE
+©2025                        Abstract                                                         Night Domain 1     Night Domain 2      Night Domain N           Night-time scene segmentation is a critical yet challenging        Day Source                                                 ...
+            task in the real-world applications, primarily due to the
+           complicated lighting conditions. However, existing meth-                                                                                               Finetune
+          ods lack sufficient generalization ability to unseen night-                                                    Frequency                                                                                                                                                       Adapter     Inference
+           time scenes with varying illumination. In light of this is-
+                                                                               VFM
+            sue, we focus on investigating generalizable paradigms for
+            night-time scene segmentation and propose an efficient fine-         Night Source                                                ...
+           tuning scheme, dubbed NightAdapter, alleviating the979-8-3315-4364-8/25/$31.00|        domain gap across various scenes.  Interestingly, differ-                            Night Pred 1        Night Pred 2         Night Pred N
+            ent properties embedded in the day-time and night-time      Figure 1. Motivation of NightAdapter. A specific source do-
+            features can be characterized by the bands after discrete      main, either a day-time or night-time scene, is utilized to fine-tune(CVPR)                                                                                      the VFM integrated with a frequency adapter, enabling inference on            sine transform, which can be categorized into illumination-
+                                                                                          arbitrary unseen night-time scenes within a generalized paradigm.
+             sensitive/-insensitive bands. Hence, our NightAdapter
+               is powered by two appealing designs:  (1) Illumination-Recognition          Insensitive Band Adaptation that provides a foundation for     Despite the success of day-time scene segmentation, visual
+                                                                     systems                                                                                                                   still                                                                                   encounter                                                                                        performance                                                                                                       drops                                                                                         when                                                                                                                     confrontedPattern         understandingmination shifts;the(2)prior,Illumination-Sensitiveenhancing the robustnessBand Adapta-to illu-     with                                                                                the                                                                                  night-time                                                                                             scenarios                                                                                        due to                                                                                                                    lighting                                                                                                                        discrepancies,
+and          tion that fine-tunes the randomized frequency bands, mit-     resulting in unique challenges for night conditions.
+Vision         igatingous night-timethe domainscenes.gap Asbetweena consequence,the day-timeillumination-and vari-    emergedRecently,in night-timean increasingscene numbersegmentation,of researcheswhich canhavebe
+             insensitive enhancement improves the domain invariance,     principally categorized as: (1) fully-supervised paradigm
+           while illumination-sensitive diminution strengthens the do-      that devises a segmentation model specialized for the night-Computer        main shift between different scenes. NightAdapter yields     time scenes [55, 70, 75], aiming to annotate more night-time
+on          significant improvements over the state-of-the-art methods     scenes for further supervision [17, 62, 65], which is based
+          under various day-to-night, night-to-night, and in-domain     on the assumption that the night-time scenes for training and
+            night segmentation experiments. Source code is available at     inference follow the independent and identical distributionConference      https://github.com/BiQiWHU/NightAdapter.       (i.i.d.); (2) domain adaptation paradigm [16, 40, 59, 60, 72]
+                                                                                    that transfers abundant semantic information in the day-time
+                                                             domain to the night-time domain that is observable duringIEEE/CVF                                                                         the training phase. However, both paradigms fail to achieve           1. Introduction
+2025                                                                                  sufficient generalization ability required for the unseen night-
+          Outdoor scene segmentation has achieved notable advances     time scenes, leaving a limited exploration of illumination
+             for day-time scenarios with sufficient lighting, from convo-     conditions that differ from those in the training images. In
+             lutional neural network [9, 10, 34, 50], Vision Transformer      this paper, we explore the innovative principles of gener-
+             [13, 35, 36, 49] to Vision Foundation Model (VFM) [39, 53].     alizable paradigms for night-time scene segmentation, via
+
+
+
+
+          2575-7075/25/$31.00 ©2025 IEEE                                  23838
+        DOI 10.1109/CVPR52734.2025.02220
+                Authorized licensed use limited to: ZheJiang Sci-Tech University. Downloaded on September 18,2026 at 09:18:46 UTC from IEEE Xplore. Restrictions apply.

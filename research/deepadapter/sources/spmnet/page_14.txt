@@ -1,0 +1,54 @@
+strategy. By combining SAG and ICCS, PSD enhances the reliability of decoding features and
+preserves the  structural information of camouflaged  targets.  Specifically, SAG reduces the
+interference from camouflage backgrounds during cross-level feature fusion, providing more
+reliable representations for subsequent refinement. Then, ICCS introduces explicit geometric
+constraints through the CCS shape prior and progressively corrects the predictions through iterative
+refinement, which improves the recovery of ambiguous boundaries and slender structures. In
+addition, HSAL further constrains the consistency between predicted regions and target geometry,
+allowing SPMNet to obtain more accurate segmentation results.
+
+b.  Computational Complexity Analysis
+
+Besides segmentation performance, we further evaluate the computational complexity of different
+methods in terms of parameters, GFLOPs, and FPS. To ensure reliable FPS measurement, all
+experiments are conducted on a single NVIDIA RTX 4090 GPU. Before testing, 20 warm-up
+iterations are performed to reduce the influence of GPU initialization latency, and the final FPS is
+calculated based on the average inference time of 200 consecutive runs.
+
+As shown in Table 3, SPMNet achieves a favorable balance between segmentation accuracy and
+computational cost. Compared with several methods based on large vision encoders, SPMNet
+avoids excessive parameter growth and computational complexity. Although introducing the shape-
+prior guided progressive decoding strategy and ICCS refinement mechanism, SPMNet maintains
+reasonable model efficiency, demonstrating its effectiveness in balancing segmentation performance
+and computational overhead.
+
+                  Table 3 Computational complexity comparison of different methods.
+
+
+              Model                    Parameters (M)            GFLOPs(G)                FPS
+
+
+         MAS-SAM[14]                       97.55                       141.03                       18.74
+
+
+           Dual-SAM[39]                      159.95                       325.68                        8.25
+
+
+          SAM2-UNet[5]                      216.40                       215.93                       15.42
+
+
+        SAM2-UNeXT[40]                    520.91                       555.84                        6.52
+
+
+          SPMNet(Ours)                      258.34                       249.98                       11.49
+
+4.4.2 Qualitative Comparisons
+
+Fig. 4 presents qualitative comparisons of different methods on representative camouflaged marine
+animal samples. It can be observed that most methods achieve similar segmentation results when
+the target regions are clear and background interference is limited. However, when facing complex
+background interference, low-contrast targets, and marine organisms with complex structures,
+existing  methods  often  suffer from  blurred  boundaries,  incomplete  structures,  and  false
+segmentation. In contrast, SPMNet generates more accurate segmentation masks with clearer and
+more continuous boundaries, especially for slender structures such as tentacles, fins, and irregular
+object contours.

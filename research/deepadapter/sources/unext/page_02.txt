@@ -1,0 +1,63 @@
+   ❄️ Frozen           Output           Feature Flow         Dense Glue Layer           U-Net-Style Decoder
+ 🔥  Tunable
+                                                                                      Resize
+                U-Net-Style Decoder                                                                                               Up
+                                                                                                                                                       Double
+                                                                                                                                           Conv
+                                                                                                                                                               Decoder
+                                                                                                                                                                            Block
+                Dense Glue Layer
+
+
+
+                                                                   C        C        C         C
+
+                                                                                                                                                   Decoder
+                                                                                                                                                               Block
+
+
+
+               SAM2                              DINOv2
+                Embeddings                          Embeddings
+                                                   Decoder Block                Decoder  SAM2 Encoder with                                                                                                                Block                             DINOv2 Encoder        Adapter  🔥                            ❄️                              Double
+                                                                     Up        Conv
+                                                                         C
+                                                                                           Output
+                                  Resize
+     High Res Input               Low Res Input
+
+Figure 1 ∣Overview of the proposed SAM2-UNeXT.
+
+
+• Simplicity. SAM2-UNeXT simplifies any additional attention design and focuses on a lightweight and
+   efficient encoder fusion strategy.
+• Scalability. With support for dynamic resolution adjustment and flexible auxiliary encoder configurations,
+  SAM2-UNeXT can be readily adapted to a broad range of downstream tasks.
+• Effectiveness. Extensive experiments on four public benchmarks demonstrate that SAM2-UNeXT consis-
+  tently achieves strong segmentation performance across diverse scenarios under limited training epochs.
+
+2  Method
+
+As illustrated in Figure 1, the proposed architecture consists of four key components: a SAM2 encoder, a
+DINOv2 encoder, a dense glue layer, and a U-Net-style decoder.
+
+2.1 SAM2 Encoder
+
+In this stage, we closely follow the practice of SAM2-UNet [56], adapting the Hiera [44] encoder from SAM2
+and freezing all of its original parameters. Parameter-efficient fine-tuning (PEFT) is performed by inserting
+lightweight adapters [18] before each Hiera block. The adapter adopts a simple “MLP-GeLU-MLP-GeLU”
+structure with a 32-channel bottleneck.
+
+2.2  DINOv2 Encoder
+
+Compared with the Segment Anything series [22, 42], DINOv2 [35] serves as a more general-purpose vision
+foundation model. Trained through self-supervised learning, it demonstrates strong transferability across
+a wide range of vision tasks, including classification, segmentation, and depth estimation. In line with the
+original implementation, we freeze all DINOv2 parameters and do not apply any parameter-efficient fine-tuning
+strategies to balance training efficiency and performance.
+
+
+
+
+
+                                               2

@@ -1,0 +1,28 @@
+guided progressive decoding. SAG reduces background interference, while ICCS uses the CCS
+shape prior to iteratively constrain complex structures and ambiguous boundaries. In addition, the
+HSAL combines region supervision with shape-aware constraints to better align the training
+objective with the decoding process. Experiments on MAS3K, RMAS, UFO120, and RUWI
+demonstrate competitive performance across multiple metrics, while qualitative and ablation results
+further verify the effectiveness of PSD, ICCS, and HSAL. Future work will explore more efficient
+iterative strategies and more flexible structural priors to reduce computational overhead and
+improve adaptability to complex underwater targets.
+
+
+
+Declaration of competing interest
+
+The authors declare that they have no known competing financial interests or personal relationships
+that could have appeared to influence the work reported in this paper.
+
+
+
+Data availability
+
+The data that support the findings of this study are available from the corresponding authors upon
+reasonable request.
+
+
+
+Funding Sources
+
+The project did not receive any financial support.

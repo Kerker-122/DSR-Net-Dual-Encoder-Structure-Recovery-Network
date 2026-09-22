@@ -1,0 +1,65 @@
+of machine learning techniques have been studied for do-
+main generalization [22, 25, 52, 67, 74, 81]. In computer
+vision, another research line focuses on decoupling the fre-
+quency components [4, 5, 26, 42, 46, 77]. The general idea
+behind is that the low- and high-frequency components have
+an inherited relation to the domain-invariant content and
+domain-dependent style, respectively.
+Parameter-Efficient Fine-Tuning (PEFT). It is an impor-
+tant technique to adapt a foundation model to a specific
+down-stream task. One common paradigm is to devise
+                                                                    Figure 3. Band-rejection spectrum analysis on the frequency bands
+a side adapter as an additional and auxiliary component
+                                                           from the frozen DINOv2 features [53] after discrete sine transfor-
+[12, 45, 64, 66, 76, 82]. Another paradigm is to modify a                                                               mation (DST). A binary classification is conducted. Source/Target
+small part of the pre-trained weights of a foundation model,      Acc.: classification accuracy on the validation set of the dataset for
+exemplified by low-rank adaptation (LoRA) [31] and its       training/the unseen dataset not seen during training.
+variations [18, 44, 47]. Some recent works also attempt to
+explore PEFT in the frequency space [4, 21, 37, 48, 78],
+which can learn more discriminative representation while      utilize DINOv2 [53] and extract the feature from last en-
+only slightly increasing the parameter number. However,     coder layer (C=1024, N=1024). A band-pass filter Bp is
+these methods are not especially devised for the night-time     employed, which divides Vi ∈R1024×1024 into 8 bands:
+scenes, where the illumination shifts greatly and the objects          Vbi = Bp(Vi) = {V[0,128)i        , · · · , V[896,1024)i         };     (2)
+are more difficult to discern due to the low contrast.           Each Vbi has 128 channels. To validate the impact of different
+                                                       bands in unseen night-time domains, a band rejection filter
+3. Preliminary                                                   Br is employed, by removing each band (i.e., flag = 0)
+3.1. Problem Definition                                       for discerning between day-time and night-time scenes:
+                                                (                                                                                                                     ′·                  0     if flag=0In our problem setting, we are given a source domain from         V i = Br(V·i, flag) =                             .     (3)
+either day-time or night-time, aiming at learning a segmenta-                                 V·i    if flag=1
+tion model (i.e., VFM) that can be well generalized to any                                                            ′·                                                                       Specifically, VFM feature V i  is processed by a multi-
+night-time target domains that have not seen before. Nor-                                                                  layer perceptron (MLP) that consists of two layers. The first
+mally, we assume the VFM has K layers. The VFM feature                                                                 layer concatenates the bands into a feature embedding, and
+from the ith layer, denoted as f i, has the shape of C × N,     the second one conducts a binary classification, with two
+where C and N are the number of channels and patches,                                                           experiments: (1) The day-time training set of CityScapes
+respectively.                                                               [15] is used as the source domain for training. The validation
+3.2. Discrete Sine Decomposition (DST)                     set of CityScapes and ACDC-night [62] are used for testing,
+                                                      which are denoted as source and target accuracy, respectively.
+DST plays a unique role in frequency analysis, which                                                                  (2) The night-time training set of NightCity [65] is used
+projects the input signal into frequency space represented                                                             as the source domain for training. The validation set of
+by a purely real matrix [27], showing superior energy com-                                                          NightCity and ACDC-night are used for testing, which are
+paction properties. Most of the image information can be                                                          denoted as source and target accuracy, respectively.
+concentrated in only a small number of the spectrum bands.
+                                                As shown in Fig. 3, 1) Removing the high-frequency
+In our context, the frozen VFM feature f i ∈RC×N is pro-                                                       bands (i.e., the first two or three bands) can significantly
+jected to a frequency domain Vi ∈RC×N by DST:
+        C−1 N−1                                        improve the generalization ability from day- or night-time
+                          π(u + 1)(c + 1)    π(v + 1)(n + 1)
+Vi(u, v) = X X f i(c, n)sin[                   ]sin[                        ],     source domain to unseen night-time target domains. 2) Re-
+          c=0 n=0          C + 1        N + 1
+                                                                                    (1)    moving the middle-frequency bands can also marginally
+where u = 1, · · · , C and v = 1, · · · , N.                     enhance the generalization ability. 3) Unfortunately, remov-
+                                                            ing the low-frequency components negatively impacts the
+3.3. Spectrum Analysis                                                                generalization ability on both source and target domains.
+The frequency domain Vi ∈RC×N can be interpreted as C       Based on these observations, the domain gap between day-
+embeddings (each with N dimensions), arranged in descend-     time and unseen night-time scenes distributes mainly in the
+ing order according to the sine coefficients. To evaluate     high frequency and partially in the middle frequency, which
+the robustness of these C bands in the context of transi-    can be denoted as illumination-sensitive bands; while the
+tions among day-time and various night-time scenes, a band-     similar patterns (i.e., scene content) rest in the low frequency,
+rejection spectrum analysis is performed. Specifically, we     which can be denoted as illumination-insensitive bands.
+
+
+
+
+                                                           23840
+
+ Authorized licensed use limited to: ZheJiang Sci-Tech University. Downloaded on September 18,2026 at 09:18:46 UTC from IEEE Xplore. Restrictions apply.

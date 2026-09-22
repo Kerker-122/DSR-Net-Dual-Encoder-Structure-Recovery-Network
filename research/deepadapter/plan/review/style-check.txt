@@ -1,0 +1,86 @@
+Checking: D:\Code\SAM2-UNeXT-main\SAM2-UNeXT-main\research\deepadapter\manuscript_zh_v1.md
+
+[1] Unnecessary bold markers (** or __):
+OK
+
+[2] List lines (body prose should use lists cautiously):
+OK
+
+[3] Banned transition/emphasis phrases:
+50:本文将辅助分支的特征适配与已有的预测细化连接起来，形成编码与解码之间的研究联系。低频适配改变进入融合的表示，PSD/ICCS 则利用融合结果形成并调整预测。两个环节的目标可以互补，但在没有独立对照之前，不能将总体性能变化归因于某个组件。因而，与采用哪些模块同样重要的是，在固定其他条件时分别评估适配分支、解码细化及其联合配置。
+
+[4] Banned English transition/emphasis phrases:
+OK
+
+[5] Subjective first-person phrases:
+OK
+
+[5b] Process or user-instruction text leaked into body:
+OK
+
+[6] Consecutive non-empty lines (manual paragraph-spacing review):
+61:$$
+62:\{F_S^i\}=\mathcal E_S(I_S),\qquad
+---
+62:\{F_S^i\}=\mathcal E_S(I_S),\qquad
+63:\{F_N^i\}=\mathcal E_N(I_N;\theta_A),\qquad
+---
+63:\{F_N^i\}=\mathcal E_N(I_N;\theta_A),\qquad
+64:P=\mathcal D_{\mathrm{PSD}}\big(\{\mathcal F_i(F_S^i,F_N^i)\}_{i=1}^{4}\big).
+---
+64:P=\mathcal D_{\mathrm{PSD}}\big(\{\mathcal F_i(F_S^i,F_N^i)\}_{i=1}^{4}\big).
+65:$$
+---
+81:$$
+82:V_\ell=\mathcal T_{\mathrm{DST}}(Z_\ell),\qquad
+---
+82:V_\ell=\mathcal T_{\mathrm{DST}}(Z_\ell),\qquad
+83:\widetilde V_\ell^{L}=\mathcal A_{\mathrm{II}}(V_\ell^{L};T_\ell),\qquad
+---
+83:\widetilde V_\ell^{L}=\mathcal A_{\mathrm{II}}(V_\ell^{L};T_\ell),\qquad
+84:\widetilde Z_\ell=\mathcal T_{\mathrm{IDST}}\!\left(\mathcal R(\widetilde V_\ell^{L},V_\ell^{\mathrm{rest}})\right).
+---
+84:\widetilde Z_\ell=\mathcal T_{\mathrm{IDST}}\!\left(\mathcal R(\widetilde V_\ell^{L},V_\ell^{\mathrm{rest}})\right).
+85:$$
+---
+97:$$
+98:F_O^i=\Phi_i\!\left(\operatorname{Concat}\left[\mathcal P_S^i(F_S^i),\mathcal R_i\big(\mathcal P_N^i(F_N^i)\big)\right]\right).
+---
+98:F_O^i=\Phi_i\!\left(\operatorname{Concat}\left[\mathcal P_S^i(F_S^i),\mathcal R_i\big(\mathcal P_N^i(F_N^i)\big)\right]\right).
+99:$$
+---
+107:$$
+108:D^i=\mathcal C_i\!\left(\operatorname{Concat}\left[\operatorname{Up}_i\big(\mathcal G_i(D^{i+1})\big),F_O^i\right]\right),\quad i=3,2,1.
+---
+108:D^i=\mathcal C_i\!\left(\operatorname{Concat}\left[\operatorname{Up}_i\big(\mathcal G_i(D^{i+1})\big),F_O^i\right]\right),\quad i=3,2,1.
+109:$$
+---
+119:$$
+120:U^{(t)}=4P^{(t-1)}(1-P^{(t-1)}),\qquad W^{(t)}=1+\beta U^{(t)},
+---
+120:U^{(t)}=4P^{(t-1)}(1-P^{(t-1)}),\qquad W^{(t)}=1+\beta U^{(t)},
+121:$$
+---
+123:$$
+124:Q_d^{(t)}=\operatorname{ReLU}\!\left(Q_d^{(t-1)}-\tau_q S_d\odot\nabla_dP^{(t-1)}\odot W^{(t)}\right),\quad d\in\{x,y\},
+---
+124:Q_d^{(t)}=\operatorname{ReLU}\!\left(Q_d^{(t-1)}-\tau_q S_d\odot\nabla_dP^{(t-1)}\odot W^{(t)}\right),\quad d\in\{x,y\},
+125:$$
+---
+127:$$
+128:D^{(t)}=\operatorname{div}(Q_x^{(t)}\odot S_x,Q_y^{(t)}\odot S_y),\qquad
+---
+128:D^{(t)}=\operatorname{div}(Q_x^{(t)}\odot S_x,Q_y^{(t)}\odot S_y),\qquad
+129:P^{(t)}=\sigma\!\left(\frac{O-D^{(t)}}{\xi}\right).
+---
+129:P^{(t)}=\sigma\!\left(\frac{O-D^{(t)}}{\xi}\right).
+130:$$
+---
+140:$$
+141:\mathcal L=\sum_{i\in\mathcal I}\lambda_i\left[\mathcal L_{\mathrm{seg}}(\widehat P_i,Y_i)+\mu_i\mathcal L_{\mathrm{shape}}(S_i,Y_i)\right].
+---
+141:\mathcal L=\sum_{i\in\mathcal I}\lambda_i\left[\mathcal L_{\mathrm{seg}}(\widehat P_i,Y_i)+\mu_i\mathcal L_{\mathrm{shape}}(S_i,Y_i)\right].
+142:$$
+---
+
+Done.

@@ -1,0 +1,31 @@
+introduces a shape-prior guided progressive decoding strategy to simultaneously restore semantic
+information and structural details, thereby alleviating semantic weakening and boundary ambiguity
+in marine animal segmentation.
+
+
+
+
+
+                             Fig. 1 Overall architecture of the proposed SPMNet.
+
+SPMNet adopts the frozen pre-trained SAM2 Hiera encoder to exploit  its powerful visual
+representation capability. To improve the adaptability of SAM2 features in complex underwater
+scenarios, MonaAdapter is introduced for lightweight feature adaptation, while the CFEM and RFB
+further enhance target-related responses and multi-scale contextual information. During decoding,
+the proposed PSD serves as the core decoding architecture and progressively reconstructs target
+structures through spatial feature refinement and shape-prior guidance. Specifically, the SAG
+suppresses camouflage-induced background interference during cross-level feature fusion and
+improves feature  reliability for subsequent shape-guided decoding. Based on the enhanced
+representations, the ICCS mechanism incorporates the CCS prior into the decoding process, where
+the shape field provides explicit geometric constraints to refine ambiguous boundaries and slender
+structures.  Finally, HSAL  jointly  optimizes  region-level segmentation accuracy and shape
+consistency, encouraging the network to generate accurate and structurally coherent segmentation
+results.
+
+3.2 Feature Adaptation and Enhancement
+
+Although the SAM2 Hiera encoder provides powerful general visual representations, the domain
+gap between its pre-training data and camouflaged marine animal segmentation may limit its
+adaptability to complex underwater scenarios. Therefore, based on the frozen SAM2 Hiera
+backbone, we introduce feature adaptation and enhancement strategies to improve the transferability
+of SAM2 features while preserving the rich visual priors learned from large-scale pre-training.

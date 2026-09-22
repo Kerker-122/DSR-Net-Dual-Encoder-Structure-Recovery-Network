@@ -1,0 +1,44 @@
+By combining regional supervision and geometric constraints, HSAL optimizes both segmentation
+accuracy and structural consistency. Compared with pixel-only supervision, HSAL introduces
+additional shape guidance and enables more continuous and accurate predictions for low-contrast
+regions and complex structures such as tentacles and fins.
+
+4. Experiments
+
+4.1 Implementation Details
+
+We employ the Hiera-L version of SAM2 as the frozen backbone of SPMNet. During training, all
+images and masks are resized to 352 × 352 pixels. AdamW is used with an initial learning rate of
+0.001, a weight decay of 0.0001, and a batch size of 16. Experiments are performed with Python
+3.10 and PyTorch 2.6.0 on a single 24-GB NVIDIA RTX 4090 GPU.
+
+4.2 Data Sets
+
+In this study, we evaluate SPMNet on four widely used marine animal segmentation benchmark
+datasets, including RMAS, MAS3K, UFO120, and RUWI. RMAS (Real-world Marine Animal
+Segmentation) contains more than 2,000 real-world marine scene images and focuses on challenging
+underwater conditions, including illumination variation, contrast changes, object occlusion, and
+background  interference  [19]. MAS3K  (Marine Animal  Segmentation  3000)  consists  of
+approximately 3,000 high-resolution underwater images with pixel-level annotations, containing
+complex backgrounds, diverse object scales, and significant target appearance variations [18].
+UFO120 (Underwater Fish and Object dataset 120) contains 1,620 samples, including 1,500 images
+for training/validation and 120 images for testing, and provides a challenging environment with low
+contrast, scattering effects, and color distortion [23]. RUWI (Realistic Underwater Images) focuses
+on realistic underwater scenarios with diverse illumination conditions, turbid backgrounds, and
+object occlusions, together with  pixel-level annotations  [24]. These  datasets cover various
+challenges  in camouflaged marine animal segmentation, including background  interference,
+appearance  similarity, and structural complexity, providing a comprehensive benchmark for
+evaluating SPMNet.
+
+4.3 Evaluation Metrics
+
+Five metrics are used for evaluation: mean Intersection over Union (𝑚𝐼𝑜𝑈), Structure Measure (𝑆∝),
+Weighted F-measure (𝐹𝛽𝜔 ), Mean Enhanced Alignment Measure (𝑚𝐸𝜑 ), Mean Absolute Error
+(MAE). These metrics provide a comprehensive evaluation of segmentation performance from
+different aspects.
+
+4.4 Comparative Experiments
+
+To evaluate the effectiveness of SPMNet for camouflaged marine animal segmentation, we compare
+it  with  existing  state-of-the-art  methods. SPMNet  is compared  with CNN-based  models,
+Transformer-based methods, and SAM-based segmentation frameworks. Quantitative results and

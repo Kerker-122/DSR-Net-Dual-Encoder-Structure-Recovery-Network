@@ -1,0 +1,28 @@
+(HSAL) by introducing additional shape-aware constraints. To compare the optimization behavior
+of the two loss functions, their training curves are normalized by their respective initial loss values,
+as shown in Fig. 7.
+
+
+
+
+
+             Fig. 7 Normalized training loss comparison between Conventional Loss and HSAL.
+
+The normalized curves show that both loss functions decrease rapidly at the beginning of training,
+while HSAL exhibits a more pronounced decline and reaches a lower relative loss range earlier. As
+training progresses, HSAL shows several noticeable local fluctuations in the middle stage,
+indicating more complex optimization dynamics after introducing the shape-aware constraint.
+Nevertheless, these fluctuations do not interrupt the overall decreasing trend, and the loss continues
+to decline afterward. In comparison, the Conventional IoU-BCE Loss changes more smoothly but
+decreases at a slower rate. During the later stage, the fluctuations of HSAL gradually become smaller
+and the curve eventually stabilizes. Overall, the advantage of HSAL does not lie in producing a
+smoother training process. Instead, it maintains effective optimization under additional structural
+supervision and reaches a stable state in the later stage. This suggests that HSAL provides
+supervision that is better aligned with the shape-guided decoding process of PSD, allowing regional
+prediction and structural constraints to be optimized jointly.
+
+5. Conclusion
+
+In this work, we propose SPMNet to address strong target-background similarity and ambiguous
+boundaries in marine animal segmentation. Built on SAM2, SPMNet improves underwater feature
+representation through feature adaptation and enhancement, and introduces a PSD for shape-prior

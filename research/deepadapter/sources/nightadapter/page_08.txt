@@ -1,0 +1,51 @@
+  Unseen images     DAFormer      HRDA         MIC         CoDA         REIN            Ours
+
+
+
+
+
+Figure 6. Visual segmentation results on unseen night-time scenes with CityScapes [15] as the source domain. The proposed NightAdapter
+is compared with DAFormer [28], HRDA [29], MIC [30], CoDA [24] and REIN [71].
+  Unseen images      RobustNet      SAW         HGFormer      CMFormer        REIN            Ours
+
+
+
+
+
+Figure 7. Visual segmentation results on unseen night-time scenes with NightCity [65] as the source domain. The proposed NightAdapter is
+compared with RobustNet [14], SAW [57],HGFormer [19], CMFormer [6] and REIN [71].
+
+when generalized to different night-time domains.             mains than the REIN baseline (left). Ideally, if a representa-
+                                                                    tion eliminates the domain gap between different night-time
+5.5. Ablation Studies                                         datasets (in different colors), the feature embedding should
+                                                       be uniformly mixed.Impact of Each Component. Table 5 studies how each
+component, namely, illumination-insensitive band adaptation     5.6. Visualization
+(IBA), illumination-sensitive band randomization (SBR), and
+                                                                   Fig. 6 and Fig. 7 compare the visual results under the day-to-illumination-sensitive band adaptation (SBA), impacts the
+                                                              night (in Sec. 5.2) and night-to-night settings (in Sec. 5.4),unseen night domain performance. REIN [71] is used as
+                                                                   respectively. NightAdapter shows more complete andthe baseline. Only using IBA leads to an mIoU improve-
+                                                                precise predictions than the state-of-the-art domain adapta-ment of 1.9%, 3.5% and 2.4% on AN, DZ and ND. For the
+                                                                   tion methods and domain generalization methods.illumination-sensitive bands, only implementing randomiza-
+tion but not fine-tuning (SBR) leads to an mIoU improvement
+                                                          6. Conclusionof 3.5%, 2.6% and 2.1% on AN, DZ and ND. Using SBA
+further leads to an mIoU improvement of 8.0%, 3.7% and     In this paper, we introduced a novel frequency adapter
+5.5% on AN, DZ and ND. These outcomes show a stronger      for generalizable night-time scene segmentation, termed
+generalization of SBR than SBA, indicating randomization    NightAdapter.  This innovation was grounded in the
+is important to mitigate the domain gap.                        observation that certain frequency bands derived from VFM
+Impact of Each Frequency Band. Table 6 studies the im-     features following discrete sine transform exhibited a distinct
+pact of each frequency band, namely, VLi  , VM1i    , VM2i   and      sensitivity to the transition between day and night, while
+VHi  , on unseen night domain performance. When a fre-     others remained unaffected. Two appealing components
+quency band is not used, it does not go through any adapta-    were designed, i.e. illumination-insensitive band adaptation
+tion but is directly fused when implementing IDST. Adapting     and illumination-sensitive band adaptation, to enhance the
+each frequency band leads to a clear improvement.             robustness to illumination shifts and mitigate the domain
+Feature Space Analysis. We use t-SNE to visualize the     gap. Extensive experiments under day-to-night generaliza-
+feature from the last encoder layer after a global average      tion, night-to-night generalization and in-domain night-time
+pooling. In Fig. 5, NightAdapter (right) presents a more     segmentation settings showed its superiority over the state-
+uniform distribution for night-time images from different do-      of-the-art methods.
+
+
+
+
+                                                           23845
+
+ Authorized licensed use limited to: ZheJiang Sci-Tech University. Downloaded on September 18,2026 at 09:18:46 UTC from IEEE Xplore. Restrictions apply.
